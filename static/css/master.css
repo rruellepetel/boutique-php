@@ -15,18 +15,27 @@ header {
     background: #C17D51;
 }
 
-nav ul {
+ul {
     display: flex;
-    justify-content: space-around;
     list-style: none;
     padding: 0;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
-.col-md-12 > header:nth-child(1) > nav:nth-child(1) > ul:nth-child(2) > li:nth-child(1) {
-    flex-grow: 1;
+nav ul {
+    justify-content: space-around;
 }
 
-#main-navbar {
+#catalog {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
+#catalog img {
+    margin-bottom: 1em;
+}
+
+footer {
+    text-align: center;
+    background: #C17D51;
 }
