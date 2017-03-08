@@ -19,6 +19,6 @@
     "jQuery": "^3.1.1",
     "Ionicons": "ionicons#^2.0.1",
     "easytabs": "^3.2.0",
-    "jssor-slider": "^22.1.8"
+    "immersive-slider": "https://github.com/peachananr/immersive-slider.git"
   }
 }
