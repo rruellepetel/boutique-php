@@ -1,0 +1,21 @@
+{
+  "name": "ecommerce",
+  "authors": [
+    "ThibDT <thibault.de.tourdonnet@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jQuery": "^3.1.1"
+  }
+}
