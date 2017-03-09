@@ -3,6 +3,22 @@ $(document).ready(function() {
     $("#tab-container").easytabs({
         uiTabs: true
     });
+    for (var i = 0; i < 5; i++) {
+        var product = catalog[Math.floor(Math.random() * catalog.length - 1)];
+        console.log(catalog[0]);
+        var slide = $("<div class='slide'></div>");
+        var content = $("<div class='content'></div>");
+        var title = $("<h2>" + product.name + "</h2>");
+        var desc = $("<p>" + product.description + "</p>");
+        var imgContainer = $("<div class='image'></div>");
+        var img = $("<img src=" + product.thumb + ">");
+        content.append(title, desc);
+        imgContainer.append(img);
+        slide.append(content, imgContainer);
+        $('#immersive_slider').prepend(slide);
+
+    }
+
     $("#immersive_slider").immersive_slider({
         animation: "bounce", // As usual, you can change the animation to these: slide (default), bounce, fade, slideUp, and bounceUp
         slideSelector: ".slide", // This option will let you assign custom selector for each slides in case .slide is already taken

@@ -29,7 +29,7 @@ $(document).ready(function() {
         while ( i < catalog.length && i < start+perPage) {
             var item = catalog[i];
             var itemElement = $("<li></li>");
-            var itemLinkElement = $("<a href='produit.html'></a>");
+            var itemLinkElement = $("<a href='produit.html?index="+i+"'></a>");
             var itemImgElement = $("<img src='"+item.thumb+"' class='img-responsive'>");
             var itemNameElement = $("<h2>"+item.name+"</h2>");
             var itemPriceElement = $("<span class='catalog-product-price'>"+item.price+"</span>");
@@ -65,16 +65,3 @@ $(document).ready(function() {
         generateCatalog(currentPage);
     });
 });
-
-
-// <ul class="pagination">
-//     <li><a><<</a></li>
-//     <li><a><</a></li>
-//     <li><a>1</a></li>
-//     <li><a>2</a></li>
-//     <li><a>3</a></li>
-//     <li><a>4</a></li>
-//     <li><a>5</a></li>
-//     <li><a>></a></li>
-//     <li><a>>></a></li>
-// </ul>
