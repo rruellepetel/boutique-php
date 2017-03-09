@@ -4,7 +4,7 @@ $(document).ready(function() {
         uiTabs: true
     });
     for (var i = 0; i < 5; i++) {
-        var product = catalog[Math.floor(Math.random() * catalog.length - 1)];
+        var product = catalog[Math.floor(Math.random() * (catalog.length - 1))];
         console.log(catalog[0]);
         var slide = $("<div class='slide'></div>");
         var content = $("<div class='content'></div>");
