@@ -13,17 +13,48 @@ body {
 
 header {
     background: #C17D51;
+    font-size: 1.5em;
 }
 
-ul {
+#main_navbar {
+    padding: 0.5em;
+}
+
+#main_navbar > li:nth-child(3) {
+    width: 100px;
+}
+
+#main_navbar > li:nth-child(3) img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -5px;
+    z-index: 1;
+}
+
+#secondary_nav {
+    background-color: #564335;
+    border-bottom: 2px solid #292019;
+
+}
+
+#secondary_nav ul {
+}
+
+.search-bar {
+    width: 30%;
+}
+
+ul:not(.is-pagination) {
     display: flex;
     list-style: none;
     padding: 0;
-    font-family: 'Gloria Hallelujah', cursive;
 }
 
 nav ul {
     justify-content: space-around;
+    margin: 0;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 #catalog {

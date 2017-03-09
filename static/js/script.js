@@ -1,22 +1,80 @@
 $(document).ready(function() {
-    $("#tab-container").easytabs({
-        uiTabs: true
-    });
-    $("#immersive_slider").immersive_slider({
+    var catalogElement = $("#catalog");
+    var perPage = 5;
+    var currentPage = 0;
 
-        animation: "bounce", // As usual, you can change the animation to these: slide (default), bounce, fade, slideUp, and bounceUp
+    function generateCatalog (start = 0) {
+        if (catalog.length > perPage) {
+            $(".pagination").remove();
+            var paginationElement = $("<ul class='pagination'></ul>");
+            var firstPage = $("<li><a href='#catalog'><<</a></li>");
+            var prevPage = $("<li><a href='#catalog'><</a></li>");
+            paginationElement.append(firstPage, prevPage);
+            catalogElement.after(paginationElement);
+            var i = 1;
+            var catalogLength = catalog.length;
+            while (catalogLength > 0) {
+                var btn = $("<li><a href='#catalog'>"+i+"</a></li>");
+                paginationElement.append(btn);
+                i++;
+                catalogLength -= perPage;
+            }
+            var lastPage = $("<li><a href='#catalog'>>></a></li>");
+            var nextPage = $("<li><a href='#catalog'>></a></li>");
+            paginationElement.append(nextPage, lastPage);
+        }
 
-        slideSelector: ".slide", // This option will let you assign custom selector for each slides in case .slide is already taken
+        catalogElement.empty();
+        var i = start;
+        while ( i < catalog.length && i < start+perPage) {
+            var item = catalog[i];
+            var itemElement = $("<li></li>");
+            var itemLinkElement = $("<a href='produit.html'></a>");
+            var itemImgElement = $("<img src='"+item.thumb+"' class='img-responsive'>");
+            var itemNameElement = $("<h2>"+item.name+"</h2>");
+            var itemPriceElement = $("<span class='catalog-product-price'>"+item.price+"</span>");
+            var itemDescElement = $("<p class='catalog-product-desc'>"+item.description+"</p>");
+            itemLinkElement.append(itemImgElement, itemNameElement, itemPriceElement, itemDescElement);
+            itemElement.append(itemLinkElement);
+            catalogElement.append(itemElement);
+            i++;
+        }
+    }
 
-        container: ".slider-container", // This option lets you define the container of which the background will appear. Make sure the slider is inside this container as well.
+    generateCatalog();
 
-        cssBlur: true, // Experimental: In case you don't want to keep adding new data-blurred attributes, trigger this to true and it will generate the blur image on the fly (more info below).
-
-        pagination: true, // Toggle this to false if you don't want a pagination
-
-        loop: true, // Toggle to false if you don't want the slider to loop. Default is true.
-
-        autoStart: 5000 // Define the number of milliseconds before it navigates automatically. Change this to 0 or false to disable autoStart. The default value is 5000.
-
+    $(document).on("click", ".pagination li", function() {
+        console.log($(this).children().html());
+        switch ($(this).children().html()) {
+            case "&lt;&lt;":
+                currentPage = 0;
+                break;
+            case "&lt;":
+                if (currentPage > 0) {currentPage -= perPage;}
+                break;
+            case "&gt;":
+                if (currentPage < catalog.length - perPage) {currentPage += perPage};
+                break;
+            case "&gt;&gt;":
+                currentPage = (catalog.length/perPage-1)*perPage;
+                break;
+            default:
+                currentPage = (parseInt($(this).children().html())-1)*perPage;
+                break;
+        }
+        generateCatalog(currentPage);
     });
 });
+
+
+// <ul class="pagination">
+//     <li><a><<</a></li>
+//     <li><a><</a></li>
+//     <li><a>1</a></li>
+//     <li><a>2</a></li>
+//     <li><a>3</a></li>
+//     <li><a>4</a></li>
+//     <li><a>5</a></li>
+//     <li><a>></a></li>
+//     <li><a>>></a></li>
+// </ul>

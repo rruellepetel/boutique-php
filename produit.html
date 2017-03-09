@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./static/external/Ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="./static/external/immersive-slider/immersive-slider.css">
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC|Clicker+Script|Gloria+Hallelujah|" rel="stylesheet">
-    <link rel="stylesheet" href="./static/css/master.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <title>Boutique En Ligne</title>
 </head>
 
@@ -17,26 +17,27 @@
     <header>
         <nav>
             <ul id="main_navbar">
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">Nous contacter</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="formulaire-contact.html">Nous contacter</a></li>
                 <li>
                     <a href="index.html"><img src="./static/img/logo-round.png" alt="logo"></a>
                 </li>
                 <li><a href="#">Mon compte</a></li>
-                <li><a href="#">Panier : 0</a></li>
+                <li><a href="panier.html">Panier : 0</a></li>
             </ul>
-            <ul>
-                <li>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Rechercher...">
-                        <div class="input-group-addon"><i class="icon ion-android-search"></i></div>
-                    </div>
-                </li>
-                <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
-                <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
-                <li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
-                <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
-            </ul>
+            <div id="secondary_nav">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <div class="input-group-addon"><i class="icon ion-android-search"></i></div>
+                </div>
+
+                <ul>
+                    <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
+                    <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="container">
@@ -51,58 +52,46 @@
                         <div class="col-xs-12 col-sm-5">
                             <div class="product-img">
                                 <img src="http://placehold.it/350x150" alt="image" class="img-responsive">
-                                <img src="http://placehold.it/140x100" alt="" class="miniature" class="img-responsive">
-                                <img src="http://placehold.it/140x100" alt="" class="miniature" class="img-responsive">
-                                <img src="http://placehold.it/140x100" alt="" class="miniature" class="img-responsive">
+                                <div class="miniatures">
+                                    <img src="http://placehold.it/140x100" alt="">
+                                    <img src="http://placehold.it/140x100" alt="">
+                                    <img src="http://placehold.it/140x100" alt="">
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-7">
                             <h2>Description</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse tempore facilis beatae enim rem ipsa commodi tempora. Delectus quibusdam reiciendis esse tempore velit ullam culpa, iste nemo, eum provident totam.</p>
                         </div>
-                        <div class="col-xs-12">
-                            <h3>Derniers commentaires</h3>
-                            <div class="comment">
-                                <span class="comment-user">
-                                    Quelqu'un
-                                </span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi fugiat, explicabo sint quas inventore sapiente, laborum aspernatur atque temporibus obcaecati quisquam, libero. A quo, perferendis sunt ad placeat doloremque ut!</p>
-                                <span class="comment-date">
-                                    08/03/2017
-                                </span>
-                            </div>
-                            <div class="comment">
-                                <span class="comment-user">
-                                    Quelqu'un
-                                </span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi fugiat, explicabo sint quas inventore sapiente, laborum aspernatur atque temporibus obcaecati quisquam, libero. A quo, perferendis sunt ad placeat doloremque ut!</p>
-                                <span class="comment-date">
-                                    08/03/2017
-                                </span>
-                            </div>
-                        </div>
+
                         <div class="col-xs-12">
                             <h3>Nous vous recommandons également</h3>
-                            <section class="product">
-                                <img src="http://placehold.it/200x100" alt="" class="img-responsive">
-                                <span class="product-name">
-                                    Produit
-                                </span>
-                            </section>
-
-                            <section class="product">
-                                <img src="http://placehold.it/200x100" alt="" class="img-responsive">
-                                <span class="product-name">
-                                    Produit
-                                </span>
-                            </section>
-
-                            <section class="product">
-                                <img src="http://placehold.it/200x100" alt="" class="img-responsive">
-                                <span class="product-name">
-                                    Produit
-                                </span>
-                            </section>
+                            <section class="suggested-products">
+                                <a href="produit.html">
+                                    <article class="product">
+                                        <img src="http://placehold.it/200x100" alt="" class="img-responsive">
+                                        <span class="product-name">
+                                            Produit
+                                        </span>
+                                    </article>
+                                </a>
+                                <a href="produit.html">
+                                    <article class="product">
+                                        <img src="http://placehold.it/200x100" alt="" class="img-responsive">
+                                        <span class="product-name">
+                                            Produit
+                                        </span>
+                                    </article>
+                                </a>
+                                <a href="produit.html">
+                                    <article class="product">
+                                        <img src="http://placehold.it/200x100" alt="" class="img-responsive">
+                                        <span class="product-name">
+                                            Produit
+                                        </span>
+                                    </article>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </main>
