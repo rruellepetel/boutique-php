@@ -22,4 +22,20 @@ $(document).ready(function() {
         href.append(article);
         $(".suggested-products").append(href);
     }
+
+    $(".addToCart").click(function() {
+        var product = {};
+
+        var cart = localStorage.getItem("cart");
+        if (cart == null) {
+            cart = {};
+        } else {
+            cart = JSON.parse(cart);
+        }
+
+        cart[index] = (parseInt(cart[index] || 0)+parseInt($("input[type='number']").val()));
+
+        cart = JSON.stringify(cart);
+        localStorage.setItem("cart", cart);
+    });
 });

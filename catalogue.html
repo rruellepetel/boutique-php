@@ -48,98 +48,39 @@
                         <div class="col-xs-12 col-md-2">
                             <aside class="">
                                 <h2>Filtrer</h2>
-                                <form action="catalogue.html" method="post">
-                                    <div class="checkbox">
-                                        <label for="">
-                                            <input type=checkbox checked>Café en grains
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="">
-                                            <input type=checkbox checked>Café moulu
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="">
-                                            <input type=checkbox checked>Café du mois
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="">
-                                            <input type=checkbox checked>Mugs & Accessoires
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label for="">
-                                            <input type=checkbox checked>Filtres
-                                        </label>
-                                    </div>
+                                <form action="catalogue.html" method="get">
                                     <h3>Prix</h3>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="order">Croissant
+                                            <input type="radio" name="order" value="asc" checked="checked">Croissant
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="order">Décroissant
+                                            <input type="radio" name="order" value="desc">Décroissant
                                         </label>
                                     </div>
                                     <div class="input-group">
                                         <label for="">
-                                            Min
+                                            Min : <span>25</span>
                                         </label>
-                                        <input type=range>
+                                        <input name="min" type=range min="20" max="50" value="20">
                                     </div>
                                     <div class="input-group">
                                         <label for="">
-                                            Max
+                                            Max : <span>25</span>
                                         </label>
-                                        <input type=range>
+                                        <input name="max" type=range min="20" max="50" value="50">
                                     </div>
                                     <input type="submit" name="" value="Actualiser">
                                 </form>
                             </aside>
                         </div>
                     <div class="col-xs-12 col-md-10">
-                        <ul id="catalog">
-
-                            <!-- <li>
-                                <a href="produit.html">
-                                    <img src="http://placehold.it/240x240" alt="" class="img-reponsive">
-                                    <h2 class="catalog-product-name">Produit 0</h2>
-                                    <span class="catalog-product-price">30 €</span>
-                                    <p class="catalog-product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consequatur, doloribus quaerat excepturi ipsa aut repudiandae molestiae cum nesciunt temporibus eum laborum eveniet corporis similique laudantium nam sed minus, voluptatem.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="produit.html">
-                                    <img src="http://placehold.it/240x240" alt="" class="img-reponsive">
-                                    <h2 class="catalog-product-name">Produit 0</h2>
-                                    <span class="catalog-product-price">30 €</span>
-                                    <p class="catalog-product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consequatur, doloribus quaerat excepturi ipsa aut repudiandae molestiae cum nesciunt temporibus eum laborum eveniet corporis similique laudantium nam sed minus, voluptatem.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="produit.html">
-                                    <img src="http://placehold.it/240x240" alt="" class="img-reponsive">
-                                    <h2 class="catalog-product-name">Produit 0</h2>
-                                    <span class="catalog-product-price">30 €</span>
-                                    <p class="catalog-product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consequatur, doloribus quaerat excepturi ipsa aut repudiandae molestiae cum nesciunt temporibus eum laborum eveniet corporis similique laudantium nam sed minus, voluptatem.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="produit.html">
-                                    <img src="http://placehold.it/240x240" alt="" class="img-reponsive">
-                                    <h2 class="catalog-product-name">Produit 0</h2>
-                                    <span class="catalog-product-price">30 €</span>
-                                    <p class="catalog-product-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consequatur, doloribus quaerat excepturi ipsa aut repudiandae molestiae cum nesciunt temporibus eum laborum eveniet corporis similique laudantium nam sed minus, voluptatem.</p>
-                                </a>
-                            </li>
- -->
-
-                        </ul>
-
+                        <div id="catalog">
+                            <ul class="list"></ul>
+                            <ul class="pagination"></ul>
+                        </div>
                     </div>
                 </main>
             </div>
@@ -154,6 +95,8 @@
 <script src="./static/external/jQuery/dist/jquery.min.js" charset="utf-8"></script>
 <script src="./static/external/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
 <script src="./static/js/catalog_x100.js" charset="utf-8"></script>
+<script src="./static/js/get_param.js" charset="utf-8"></script>
+<script src="./static/external/list.js/dist/list.js" charset="utf-8"></script>
 <script src="./static/js/script.js" charset="utf-8"></script>
 
 </body>
