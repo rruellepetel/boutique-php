@@ -22,6 +22,7 @@ $(document).ready(function(){
                     delete cart[id];
                     cart = JSON.stringify(cart);
                     localStorage.setItem("cart", cart);
+                    updateMenu();
                     generateCart();
                 })
                 delProduct.append(delBtn);
@@ -45,7 +46,8 @@ $(document).ready(function(){
 
     $(document).on("click", "#emptyCart", function(){
         localStorage.removeItem("cart");
-        generateCart()
+        updateMenu();
+        generateCart();
     });
 
     $(document).on("click", ".quantityBtn", function() {
@@ -55,6 +57,7 @@ $(document).ready(function(){
             cart[id]++;
             localStorage.setItem("cart", JSON.stringify(cart));
             generateCart();
+            updateMenu();
         }
 
         if ($(this).html() == "-") {
@@ -64,6 +67,7 @@ $(document).ready(function(){
             };
             localStorage.setItem("cart", JSON.stringify(cart));
             generateCart();
+            updateMenu();
         }
     });
     generateCart();

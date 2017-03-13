@@ -37,5 +37,6 @@ $(document).ready(function() {
 
         cart = JSON.stringify(cart);
         localStorage.setItem("cart", cart);
+        updateMenu();
     });
 });
