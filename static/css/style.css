@@ -45,6 +45,11 @@ ul {
 #main_navbar > li:nth-child(3) img {
     width: 150px;
     height: 150px;
+    transition: 1s;
+}
+
+#main_navbar > li:nth-child(3) img:hover {
+    transform: rotate(360deg);
 }
 
 #secondary_nav {

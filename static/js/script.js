@@ -5,7 +5,7 @@ $(document).ready(function() {
     }
     var min = GET_PARAM('min');
     var max = GET_PARAM('max')
-    console.log(order);
+
     var options = {
         valueNames: [
             'name',
@@ -51,9 +51,9 @@ $(document).ready(function() {
     }
 
     $(document).on("input", "input[type='range']", function() {
-        $(this).prev().children('span').html($(this).val());
+        $(this).prev().children('span').html($(this).val().replace(" €", "") + " €");
     })
-    $("input[name='min']").prev().children('span').html($("input[name='min']").val());
-    $("input[name='max']").prev().children('span').html($("input[name='max']").val());
+    $("input[name='min']").prev().children('span').html($("input[name='min']").val().replace(" €", "") + " €");
+    $("input[name='max']").prev().children('span').html($("input[name='max']").val().replace(" €", "") + " €");
 
 });
