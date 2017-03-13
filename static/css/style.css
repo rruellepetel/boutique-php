@@ -19,6 +19,11 @@ ul {
     padding-left: 0;
 }
 
+.cartQuantity {
+    display: inline-block;
+    min-width: 2em;
+}
+
 #main_navbar {
     display: flex;
     justify-content: space-around;
