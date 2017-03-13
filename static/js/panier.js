@@ -9,17 +9,16 @@ $(document).ready(function(){
             var totalPrice = 0;
             for (key in cart) {
                 var product = catalog[key];
-                console.log(product);
-                var productLine = $("<tr></tr>");
+                var productLine = $("<tr data-id='"+key+"'></tr>");
                 var productImg = $("<td><img src='"+product.thumb+"'></td>");
                 var productName = $("<td>"+product.name+"</td>");
                 var productPrice = $("<td>"+product.price+" €</td>");
-                var quantity = $("<td><input type='number' value='"+cart[key]+"'></td>");
+                var quantity = $("<td><button class='btn btn-warning quantityBtn'>-</button>"+cart[key]+"<button class='btn btn-primary quantityBtn'>+</button></td>");
                 var linePrice = $("<td>"+parseInt(product.price) * parseInt(cart[key])+" €</td>");
                 var delProduct = $("<td></td>");
-                var delBtn = $("<button data-id='"+key+"'>x</button>");
+                var delBtn = $("<button class='btn btn-danger'>x</button>");
                 delBtn.click(function(){
-                    var id = $(this).data("id");
+                    var id = $(this).parent().parent().data("id");
                     delete cart[id];
                     cart = JSON.stringify(cart);
                     localStorage.setItem("cart", cart);
@@ -39,9 +38,33 @@ $(document).ready(function(){
             var totalLine = $("<tr></tr>");
             totalLine.append("<td colspan='4'>Total</td>");
             totalLine.append("<td>"+(totalPrice*1.2).toFixed(2)+" €</td>");
-            var btnLine = $("<tr><td colspan='4'><button>Mettre à jour</button></td><td><button>Payer</button></td></tr>");
+            var btnLine = $("<tr><td colspan='4'><button class='btn btn-warning' id='emptyCart'>Vider le panier</button></td><td><button class='btn btn-success'>Payer</button></td></tr>");
             $("table").append(subtotalLine, tvaLine, totalLine, btnLine);
         }
     }
+
+    $(document).on("click", "#emptyCart", function(){
+        localStorage.removeItem("cart");
+        generateCart()
+    });
+
+    $(document).on("click", ".quantityBtn", function() {
+        var cart = JSON.parse(localStorage.getItem("cart"));
+        if ($(this).html() == "+") {
+            var id = $(this).parent().parent().data("id");
+            cart[id]++;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            generateCart();
+        }
+
+        if ($(this).html() == "-") {
+            var id = $(this).parent().parent().data("id");
+            if (cart[id] > 1) {
+                cart[id]--;
+            };
+            localStorage.setItem("cart", JSON.stringify(cart));
+            generateCart();
+        }
+    });
     generateCart();
 });
