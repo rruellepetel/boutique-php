@@ -1,11 +1,4 @@
 $(document).ready(function() {
-    var order = GET_PARAM('order');
-    if (order == null) {
-        order = "asc";
-    }
-    var min = GET_PARAM('min');
-    var max = GET_PARAM('max')
-
     var options = {
         valueNames: [
             'name',
@@ -19,16 +12,27 @@ $(document).ready(function() {
         pagination: true
     };
     var catalogList = new List('catalog', options);
-    for (var i=0; i< catalog.length; i++) {
-        product = catalog[i];
-        catalogList.add({
-            name: product.name,
-            description: product.description,
-            price: product.price + " €",
-            thumb: product.thumb,
-            link: 'produit.html?index='+i
-        })
+    $.get('https://codi-e-commerce.herokuapp.com/', function(data) {
+        for (var i=0; i<data.length; i++) {
+            product = data[i];
+            catalogList.add({
+                name: product.name,
+                description: product.description,
+                price: product.price + " €",
+                thumb: product.thumb,
+                link: 'produit.html?index='+i
+            })
+        }
+    }, 'json');
+
+
+    var order = GET_PARAM('order');
+    if (order == null) {
+        order = "asc";
     }
+    var min = GET_PARAM('min');
+    var max = GET_PARAM('max')
+
 
     if (order == "asc") {
         catalogList.sort('price', {order: "asc"});
@@ -55,5 +59,4 @@ $(document).ready(function() {
     })
     $("input[name='min']").prev().children('span').html($("input[name='min']").val().replace(" €", "") + " €");
     $("input[name='max']").prev().children('span').html($("input[name='max']").val().replace(" €", "") + " €");
-
 });

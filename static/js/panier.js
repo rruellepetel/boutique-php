@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var catalog = [];
     function generateCart() {
         var cart = JSON.parse(localStorage.getItem("cart"));
         $("table").empty();
@@ -44,6 +45,14 @@ $(document).ready(function(){
         }
     }
 
+
+    $.get('https://codi-e-commerce.herokuapp.com/', function(data) {
+        for (key in data) {
+            catalog.push(data[key]);
+        }
+            generateCart();
+    });
+
     $(document).on("click", "#emptyCart", function(){
         localStorage.removeItem("cart");
         updateMenu();
@@ -70,5 +79,5 @@ $(document).ready(function(){
             updateMenu();
         }
     });
-    generateCart();
+
 });
