@@ -9,8 +9,10 @@ define('MYSQL_SERVEUR', 'localhost');
                     MYSQL_MOTDEPASSE,
                     MYSQL_BASE);
         $mysql->set_charset("utf8");
-        $sql = 'SELECT * FROM Product';
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM Product WHERE id = $id";
         $result = $mysql->query($sql);
+        $prod =  $result->fetch_array();
  ?>
 
 
@@ -60,6 +62,7 @@ define('MYSQL_SERVEUR', 'localhost');
         <div class="row">
             <div class="col-md-12">
                 <main>
+                    <h1><?php echo $prod['name'];  ?></h1>
                     <div class="row">
                         <div class="col-xs-12 col-sm-5">
                             <div class="product-img">
@@ -67,6 +70,8 @@ define('MYSQL_SERVEUR', 'localhost');
                         </div>
                         <div class="col-xs-12 col-sm-7">
                             <h2>Description</h2>
+                            <span><?php echo $prod['price'];  ?> €</span>
+                            <p><?php echo $prod['description'];  ?></p>
                             <input type="number" value="1" min=0>
                             <button class="addToCart">Ajouter au panier</button>
                         </div>
