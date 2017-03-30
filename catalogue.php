@@ -12,7 +12,6 @@ define('MYSQL_SERVEUR', 'localhost');
         $mysql->set_charset("utf8");
         $sql = 'SELECT * FROM Product';
         $result = $mysql->query($sql);
-
  ?>
 <!DOCTYPE html>
 <html lang="fr">
